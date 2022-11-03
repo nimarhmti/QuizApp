@@ -1,9 +1,12 @@
 import { Box, Button, CircularProgress, Typography } from "@mui/material";
+
 import React from "react";
 import SelectField from "../Components/SelectField";
 import TextfieldComp from "../Components/TextfieldComp";
 import useAxios from "../Hooks/useAxios";
+import { useHistory } from "react-router-dom";
 function Settings() {
+  const history = useHistory();
   const { response, isloading, error } = useAxios({ url: "/api_category.php" });
   if (isloading) {
     return (
@@ -13,6 +16,7 @@ function Settings() {
     );
   }
   if (error) {
+    console.log("flag");
     return (
       <Typography variant="h6" mt={20} color="red">
         Something went wrong...
@@ -33,6 +37,7 @@ function Settings() {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
+    history.push("/questions");
   };
 
   return (
