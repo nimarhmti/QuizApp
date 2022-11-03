@@ -16,15 +16,17 @@ function FinalScreen() {
   return (
     <Box mt={30}>
       <Typography mb={3} variant="h6" fontWeight="bold">
-        Final Score : {(score / amountOfQuestion) * 100} %
+        Final Score : {(score / amountOfQuestion).toFixed(2) * 100} %
       </Typography>
       <Typography mb={3} variant="h6" fontWeight="bold">
         correct answer: {score}
+      </Typography>
+      <Typography mb={3} variant="h6" fontWeight="bold">
         incorrect answer: {Math.abs(amountOfQuestion - score)}
       </Typography>
 
       <Button onClick={onclickHandler} variant="contained">
-        another try
+        try agian
       </Button>
     </Box>
   );
